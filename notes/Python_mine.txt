@@ -1,0 +1,611 @@
+Python Backend & Flask and MYSQL
+
+
+SCHEME OF WORK
+
+
+- Python programs.
+
+
+
+- Understand Flask and create a web server.
+
+
+
+- Create web pages that communicate with Flask.
+
+
+
+- Store and retrieve information using MySQL.
+
+
+
+- Build Project
+
+A.
+
+Python
+Python is a programming language used to give instructions to a computer. It is used to build websites, games, applications and artificial intelligence systems.
+
+Key concepts
+- Variable: Stores information.
+- Data type: Describes the kind of information, such as text or numbers.
+- Condition: Allows a program to make decisions.
+- Function: A reusable block of code.
+
+
+Example 1: Display a message
+
+
+print("Hello, Pearl!")
+print("Welcome to Backend Development.")
+
+
+installation: python 
+to check use python --version or py --version or  python -m pip --version
+
+Example 2: 
+name = "Peace"
+age = 90
+
+print("My name is", name)
+print("I am", age, "years old")
+
+if age >= 10:
+    print("I can learn backend development!")
+
+
+
+
+B. Flask
+
+Flask is a Python web framework used to create websites and backend applications.
+It receives requests from a browser, processes them using Python and returns responses.
+
+Important concepts
+- Route: An address on a website.
+- Request: Information sent to the server.
+- Response: Information returned by the server.
+- Web server: Receives and handles web requests.
+
+
+To run app use: python app.py, then this appear http://127.0.0.1:5000
+
+
+
+Installing Flask
+
+First, install Python on your computer. 
+
+
+Create a project folder named: python_flask_mysql
+
+
+Open that folder in VS Code terminal and create envronment : python -m venv venv
+
+
+Activate it by : .\venv\Scripts\Activate.ps1   or  venv\Scripts\activate.bat
+Deacrivate use: deactivate
+
+Install flask by using: python -m pip install flask
+
+To check: python -m flask --version
+
+
+
+
+
+C. MySQL
+
+MySQL is a database management system used to store, organise and retrieve information.
+
+For example, a school can use MySQL to store student names, ages and subjects.
+
+Important concepts
+- Database: An organised collection of information.
+- Table: Stores related information in rows and columns.
+- Row: Contains one record.
+- Column: Stores a particular type of information.
+- SQL: The language used to work with the database.
+
+
+Installation
+
+Connecting Python Flask to MySQL: python -m pip install mysql-connector-python
+
+To check: python -c "import mysql.connector; print(mysql.connector.__version__)"
+
+
+
+====================================================================================================
+
+Day 1 — Introduction to Python
+
+Learning objectives
+- Understand Python and its uses.
+- Write and run a Python program.
+- Understand variables and data types.
+
+1. What is Python?
+Python is a programming language used to give instructions to computers. 
+It can be used to build websites, games, applications and artificial intelligence systems.
+
+
+
+2. Your first Python program
+
+Create a file called day1.py in VS Code.
+
+print("Hello, Pearl!")
+
+print("Welcome to Python programming.")
+
+print("I am learning backend development.")
+
+
+Then use: python day1.py to run it
+
+
+
+
+3. Variables
+A variable is a named place for storing information.
+
+example: 
+student_name = "Pearl"
+student_age = 12
+favourite_subject = "Computer Science"
+
+print(student_name)
+print(student_age)
+print(favourite_subject)
+
+
+
+
+4. Data types
+
+Data type	Example		Meaning
+
+String		"Pearl"		Text
+Integer		12		    Whole number
+Float		12.5		Decimal number
+Boolean		True		True or false value
+
+
+
+
+Practice exercise
+Write a program that stores your name, gender and favourite food in variables and displays them.
+
+
+Day 2 — Conditions, Loops and Functions
+
+Learning objectives
+
+Understand how programs make decisions, repeat tasks and organise code.
+
+
+1. Conditions
+Conditions allow a program to make decisions.
+
+Example:
+
+age = 12
+
+if age >= 10:
+    print("You can join the coding club.")
+else:
+    print("Keep practising your coding.")
+
+
+
+2. Loops or iteration
+Loops repeat instructions.
+
+Example:
+
+for number in range(1, 6):
+    print("Python lesson", number)
+
+
+o/p
+
+Python lesson 1
+Python lesson 2
+Python lesson 3
+Python lesson 4
+Python lesson 5
+
+
+
+3. Functions
+A function is a reusable block of code.
+
+user define function for starting function code (def)
+
+
+
+Example:
+
+def greet_student(name):
+    print("Welcome,", name)
+    print("Let's learn Python!")
+
+greet_student("Pearl")
+greet_student("Tobi")
+
+
+
+
+Example 2
+
+
+answer = input("What language are we learning? ")
+
+if answer.strip().lower() == "python":
+    print("Correct! Well done.")
+else:
+    print("Try again!")
+
+
+
+Practice exercise
+Create a quiz with three questions and display a score for the correct answers.
+
+
+
+
+
+Day 3 — Introduction to Flask
+
+Learning objectives
+- Understand backend development.
+- Install Flask.
+- Create a simple web server.
+
+
+1. What is backend development?
+Backend development deals with the work that happens behind a website, 
+such as processing forms, checking information and saving records.
+
+
+2. What is Flask?
+Flask is a Python web framework that helps developers build websites and backend applications.
+
+others are: bottle, fast api, django, sanic, tornado, pyramid, web2py etc.
+
+
+
+3. Prepare your project
+Make sure Python is installed. Check it using: python --version
+
+
+Create a project folder named python_flask_mysql, open it in VS Code, and run:
+python -m venv venv
+
+
+Activate the environment in PowerShell: .\venv\Scripts\Activate.ps1 or 
+
+
+or
+
+
+Or, in Command Prompt: venv\Scripts\activate.bat
+
+
+Install Flask:
+python -m pip install flask
+
+
+Check the installation:
+python -m flask --version
+
+
+
+4. Create your first Flask server
+Create app.py
+
+
+
+4. Create your first Flask server
+Create app.py
+
+
+Example:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Flsk web app begins"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+Run it with: python app.py
+
+
+
+Open http://127.0.0.1:5000 in your browser.
+
+You should see your welcome message.
+
+
+Important terms
+
+- Flask(__name__) creates the application.
+
+- @app.route("/") defines the homepage URL.
+
+- return sends a response to the browser.
+
+- app.run() starts the development server.
+
+
+Use debug mode only during local development.
+
+
+Routes
+A route is an address on your website that performs a particular task.
+Let's add more routes to app.py.
+
+exmaple:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Welcome to Pearl's Website!"
+
+@app.route("/about")
+def about():
+    return "I am learning Python backend development."
+
+@app.route("/hobbies")
+def hobbies():
+    return "I enjoy coding, reading and creating websites."
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+Now Try these addresses in your browser:
+
+URL	Expected response
+http://127.0.0.1:5000/	Welcome message
+http://127.0.0.1:5000/about	About information
+http://127.0.0.1:5000/hobbies	Hobbies information
+
+
+
+
+What is MySQL?
+
+MySQL is a database management system. It stores information in tables, which have columns and rows.
+
+- Table: A collection of related information.
+- Column: A type of information, such as name.
+- Row: One complete record about a student.
+- Primary key: A value that uniquely identifies each record.
+- foreign key: from from tables
+
+Creating a database
+Install MySQL Server and MySQL Workbench, or use another MySQL client.
+Open a SQL query window and run:
+
+sql code:
+
+CREATE DATABASE school_db;
+
+USE school_db;
+
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT,
+    subject VARCHAR(100)
+);
+
+
+What does this code mean?
+- CREATE DATABASE creates a database.
+- USE selects the database.
+- CREATE TABLE creates a table.
+- AUTO_INCREMENT automatically generates a new ID.
+- VARCHAR(100) stores text up to 100 characters.
+- NOT NULL means a value must be provided.
+
+
+Adding student records
+
+INSERT INTO students (name, age, subject)
+VALUES ('Pearl', 20, 'Python');
+
+INSERT INTO students (name, age, subject)
+VALUES ('Ada', 20, 'Mathematics');
+
+
+Display all records:
+SELECT * FROM students;
+
+
+Find students learning Python:
+SELECT * FROM students
+WHERE subject = 'Python';
+
+
+Update and delete records
+
+Update a student's subject:
+UPDATE students
+SET subject = 'Flask'
+WHERE id = 1;
+
+
+Delete a particular record:
+DELETE FROM students
+WHERE id = 2;
+
+
+
+Connect Flask to MySQL
+
+Learning objectives
+- Install the MySQL connector.
+- Connect Python to MySQL.
+- Retrieve records using Flask.
+
+1. Install the connector
+
+python -m pip install mysql-connector-python
+
+check version
+
+python -c "import mysql.connector; print(mysql.connector.__version__)"
+
+2. Create db.py
+This file will handle the database connection.
+
+
+3. Retrieve students using Flask
+Create or update app.py:
+
+4. create templates and pur the code in students.html
+
+
+Flask runs the web application, Python handles the logic, and MySQL stores the records. 
+The template displays the data retrieved from the database.
+
+
+
+next class
+
+Save New Students from a Web Form
+
+Learning objectives
+- Create a student registration form.
+- Validate user input.
+- Save records from Flask into MySQL.
+
+
+This lesson extends:
+
+1. Create the registration form
+Create templates/add_student.html:
+
+TODAY'S TOPIC
+
+UPDATE students
+SET name = %s, age = %s, subject = %s
+WHERE id = %s;
+
+
+
+Flask UPDATE route (app.py)
+and Delete
+
+
+Flask application runs at http://127.0.0.1:5000:
+
+Function	            URL                     	    HTTP Method
+View all students	    http://127.0.0.1:5000/	        GET
+Open Add Student form	http://127.0.0.1:5000/add	    GET
+Save a new student	    http://127.0.0.1:5000/add	    POST
+Open Edit Student form	http://127.0.0.1:5000/edit/1	GET
+Update student record	http://127.0.0.1:5000/update/1	POST
+Delete student record	http://127.0.0.1:5000/delete/1	POST
+
+Understanding the URLs
+- / — Displays all student records.
+- /add — Displays the form and processes new student submissions.
+- /edit/1 — Opens the edit form for student ID 1.
+- /update/1 — Updates student ID 1 after form submission.
+- /delete/1 — Deletes student ID 1 after confirmation.
+
+
+Important: Replace 1 with the actual student ID.
+
+
+
+
+
+
+
+
+
+
+confirm this installation
+
+python -m pip install flask mysql-connector-python
+
+sql
+-- CREATE DATABASE
+CREATE DATABASE IF NOT EXISTS restschool;
+
+-- SELECT DATABASE
+USE restschool;
+
+-- CREATE STUDENT TABLE
+CREATE TABLE IF NOT EXISTS reststudent (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    subject VARCHAR(100) NOT NULL
+);
+
+-- INSERT SAMPLE STUDENTS
+INSERT INTO reststudent (name, age, subject)
+VALUES
+('Pearl', 12, 'Python'),
+('David', 14, 'Mathematics'),
+('Sarah', 13, 'Science'),
+('Daniel', 15, 'Computer Studies');
+
+-- VIEW TABLE STRUCTURE
+DESCRIBE reststudent;
+
+-- VIEW STUDENT RECORDS
+SELECT * FROM reststudent;
+
+
+
+RESTAPI
+
+Traditional Python Flask (Without REST API)
+
+In traditional Flask development, the browser sends a request to Flask, 
+Flask processes it, communicates with MySQL, and returns an HTML page.
+
+
+Traditional Flask
+
+Flask returns HTML pages using render_template(). Forms submit using POST, 
+and Flask redirects using redirect()
+
+
+Flask REST API
+
+Flask returns JSON data. JavaScript, mobile apps or other clients communicate
+with the backend using HTTP methods such as GET, POST, PUT and DELETE.
+
+
+Flask REST API is used when you want different applications to communicate with 
+the same backend and database.
+
+
+Where is Flask REST API used?
+
+1. School Management Systems
+
+2. Banking and Fintech Applications
+
+3. E-commerce Applications
+
+4. Hospital Management Systems  etc.

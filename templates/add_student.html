@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Student</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px 15px;
+            min-height: 100vh;
+
+            /* NETWORK BACKGROUND IMAGE */
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.20),
+                    rgba(0, 0, 0, 0.20)
+                ),
+                url("https://images.unsplash.com/photo-1451187580459-43490279c0fa");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* TRANSPARENT FORM CONTAINER */
+        .container {
+            width: 100%;
+            max-width: 450px;
+            margin: auto;
+            padding: 30px;
+
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+
+            text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        /* TRANSPARENT INPUT FIELDS */
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 7px;
+
+            color: white;
+            font-size: 15px;
+        }
+
+        input::placeholder {
+            color: white;
+            opacity: 1;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #00aaff;
+            background: rgba(255, 255, 255, 0.10);
+        }
+
+        /* SAVE BUTTON */
+        button {
+            background: #007bff;
+            color: white;
+
+            border: none;
+            padding: 14px;
+            width: 100%;
+
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        /* BACK TO DASHBOARD */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+
+            text-shadow: 1px 1px 3px black;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* FLASH MESSAGES */
+        .flash {
+            padding: 12px;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .success {
+            background: rgba(209, 231, 221, 0.95);
+            color: #0f5132;
+        }
+
+        .error {
+            background: rgba(248, 215, 218, 0.95);
+            color: #842029;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 480px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Add New Student</h2>
+
+        <!-- FLASH MESSAGES -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% for category, message in messages %}
+
+                <div class="flash {{ category }}">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endwith %}
+
+
+        <!-- ADD STUDENT FORM -->
+        <form action="{{ url_for('add_student') }}" method="POST">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Student Name"
+                required
+                minlength="2"
+            >
+
+            <input
+                type="number"
+                name="age"
+                placeholder="Student Age"
+                min="1"
+                max="120"
+                required
+            >
+
+            <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required
+                minlength="2"
+            >
+
+            <button type="submit">
+                Save Student
+            </button>
+
+        </form>
+
+
+        <!-- DASHBOARD LINK -->
+        <a href="{{ url_for('home') }}" class="back-link">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+
+</html>
