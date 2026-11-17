@@ -25,22 +25,22 @@
 
 #         print("Database Connection Failed:", error)
 
-
 import mysql.connector
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
+from urllib.parse import urlparse, unquote
 
 def get_connection():
-    return mysql.connector.connect(
-        host=os.getenv("DB_HOST", "localhost"),
-        user=os.getenv("DB_USER", "TOM"),
-        password=os.getenv("DB_PASSWORD", "TOM"),
-        database=os.getenv("REST_DB_NAME", "restschool"),
-        port=int(os.getenv("DB_PORT", "3306"))
-    )
+    url = urlparse(os.getenv("REST_DATABASE_URL"))
 
+    return mysql.connector.connect(
+        host=url.hostname,
+        port=url.port or 4000,
+        user=unquote(url.username),
+        password=unquote(url.password),
+        database=url.path.lstrip("/"),
+        ssl_verify_cert=True,
+        ssl_verify_identity=True
+    )
 
 if __name__ == "__main__":
     try:
